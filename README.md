@@ -1,4 +1,4 @@
-# Edge Impulse TI 15.4 Stack remote monitoring
+# Edge Impulse TI 15.4 Stack - Remote Monitoring
 
 ## Overview
 This project showcases remote monitoring of a sensor device using edge impulse and the TI 15.4 stack. This project builds on the [Sensor and Collector](https://dev.ti.com/tirex/explore/node?node=AFU6dryAU8NukjdRPy4T4Q__pTTHBmu__LATEST) examples from the TI 15.4 stack, and integrates edge impulse to run a neural network on the sensor device. The result from the neural network is sent to the collector device
