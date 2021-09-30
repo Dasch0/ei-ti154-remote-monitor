@@ -36,7 +36,7 @@ extern "C" {
 //
 // If standalone inference is != 1, this implementation will try to sample
 // from the INA228 driver defined in ina228.h
-#define EI_STANDALONE_INFERENCE 0
+#define EI_STANDALONE_INFERENCE 1
 
 #if EI_STANDALONE_INFERENCE == 0
 static const float features[] = {
