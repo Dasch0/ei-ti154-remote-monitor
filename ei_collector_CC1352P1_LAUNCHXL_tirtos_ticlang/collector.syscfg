@@ -1,0 +1,90 @@
+/**
+ * These arguments were used when this file was generated. They will be automatically applied on subsequent loads
+ * via the GUI or CLI. Run CLI with '--help' for additional information on how to override these arguments.
+ * @cliArgs --board "/ti/boards/CC1352P1_LAUNCHXL" --product "simplelink_cc13x2_26x2_sdk@5.10.00.48"
+ * @versions {"tool":"1.9.0+2015","templates":null}
+ */
+
+/**
+ * Import the modules used in this configuration.
+ */
+const CCFG       = scripting.addModule("/ti/devices/CCFG");
+const rfdesign   = scripting.addModule("/ti/devices/radioconfig/rfdesign");
+const Display    = scripting.addModule("/ti/display/Display");
+const Display1   = Display.addInstance();
+const NVS        = scripting.addModule("/ti/drivers/NVS");
+const NVS1       = NVS.addInstance();
+const RF         = scripting.addModule("/ti/drivers/RF");
+const RTOS       = scripting.addModule("/ti/drivers/RTOS");
+const Button     = scripting.addModule("/ti/drivers/apps/Button");
+const Button1    = Button.addInstance();
+const Button2    = Button.addInstance();
+const LED        = scripting.addModule("/ti/drivers/apps/LED");
+const LED1       = LED.addInstance();
+const LED2       = LED.addInstance();
+const ti154stack = scripting.addModule("/ti/ti154stack/ti154stack");
+
+/**
+ * Write custom configuration values to the imported modules.
+ */
+CCFG.xoscCapArray             = true;
+CCFG.xoscCapArrayDelta        = 0xC1;
+CCFG.enableBootloader         = true;
+CCFG.enableBootloaderBackdoor = true;
+CCFG.dioBootloaderBackdoor    = 15;
+CCFG.levelBootloaderBackdoor  = "Active low";
+CCFG.ccfgTemplate.$name       = "ti_devices_CCFGTemplate0";
+
+Display1.$hardware                = system.deviceData.board.components.XDS110UART;
+Display1.$name                    = "CONFIG_DISPLAY";
+Display1.uart.$name               = "CONFIG_DISPLAY_UART";
+Display1.uart.txPinInstance.$name = "CONFIG_PIN_UART_TX";
+Display1.uart.rxPinInstance.$name = "CONFIG_PIN_UART_RX";
+
+NVS1.$name                    = "CONFIG_NVSINTERNAL";
+NVS1.internalFlash.$name      = "ti_drivers_nvs_NVSCC26XX0";
+NVS1.internalFlash.regionBase = 0x4E000;
+NVS1.internalFlash.regionSize = 0x8000;
+
+RF.$hardware = system.deviceData.board.components["SKY13317-373LF"];
+
+Button1.$hardware                 = system.deviceData.board.components["BTN-1"];
+Button1.$name                     = "CONFIG_BTN_LEFT";
+Button1.gpioPin.$name             = "CONFIG_GPIO_BTN1";
+Button1.gpioPin.pinInstance.$name = "CONFIG_PIN_BTN1";
+
+Button2.$hardware                 = system.deviceData.board.components["BTN-2"];
+Button2.$name                     = "CONFIG_BTN_RIGHT";
+Button2.gpioPin.$name             = "CONFIG_GPIO_BTN2";
+Button2.gpioPin.pinInstance.$name = "CONFIG_PIN_BTN2";
+
+LED1.$hardware                 = system.deviceData.board.components.LED_RED;
+LED1.$name                     = "CONFIG_LED_RED";
+LED1.gpioPin.$name             = "CONFIG_GPIO_RLED";
+LED1.gpioPin.pinInstance.$name = "CONFIG_PIN_RLED";
+
+LED2.$hardware                 = system.deviceData.board.components.LED_GREEN;
+LED2.$name                     = "CONFIG_LED_GREEN";
+LED2.gpioPin.$name             = "CONFIG_GPIO_GLED";
+LED2.gpioPin.pinInstance.$name = "CONFIG_PIN_GLED";
+
+ti154stack.lockProject                        = true;
+ti154stack.radioConfig.codeExportConfig.$name = "ti_devices_radioconfig_code_export_param0";
+ti154stack.aesccmModule.$name                 = "CONFIG_AESCCM_0";
+ti154stack.ti154stackModule.$name             = "ti_ti154stack_ti154stack_config_mod0";
+
+/**
+ * Pinmux solution for unlocked pins/peripherals. This ensures that minor changes to the automatic solver in a future
+ * version of the tool will not impact the pinmux you originally saw.  These lines can be completely deleted in order to
+ * re-solve from scratch.
+ */
+Display1.uart.uart.$suggestSolution       = "UART0";
+Display1.uart.uart.txPin.$suggestSolution = "boosterpack.4";
+Display1.uart.uart.rxPin.$suggestSolution = "boosterpack.3";
+RF.rfAntennaPin0.$suggestSolution         = "ball.41";
+RF.rfAntennaPin1.$suggestSolution         = "ball.42";
+RF.rfAntennaPin2.$suggestSolution         = "ball.43";
+Button1.gpioPin.gpioPin.$suggestSolution  = "boosterpack.13";
+Button2.gpioPin.gpioPin.$suggestSolution  = "boosterpack.8";
+LED1.gpioPin.gpioPin.$suggestSolution     = "boosterpack.39";
+LED2.gpioPin.gpioPin.$suggestSolution     = "boosterpack.40";
