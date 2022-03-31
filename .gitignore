@@ -1,1 +1,5 @@
 .DS_Store
+ei_sensor_CC1352P1_LAUNCHXL_tirtos_ticlang/Release
+ei_collector_CC1352P1_LAUNCHXL_tirtos_ticlang/Release
+*.o
+*.d

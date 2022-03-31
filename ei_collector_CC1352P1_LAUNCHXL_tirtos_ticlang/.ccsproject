@@ -15,4 +15,5 @@
 	<templateProperties value="id=collector_CC1352P1_LAUNCHXL_tirtos_ticlang.projectspec.collector_CC1352P1_LAUNCHXL_tirtos_ticlang,type=rtsc,xdcToolsVersion=3.62.00.08,target=ti.targets.arm.clang.M4F,platform=ti.platforms.simplelink:CC1352P1F3,buildProfile=release,isHybrid=true,configuroOptions= --compileOptions &quot;${COMPILER_FLAGS} &quot;"/>
 	<origin value="/Users/davidschwarz/git/simplelink_cc13x2_26x2_sdk_5_10_00_48/examples/rtos/CC1352P1_LAUNCHXL/ti154stack/collector/tirtos/ticlang/collector_CC1352P1_LAUNCHXL_tirtos_ticlang.projectspec"/>
 	<filesToOpen value=""/>
+	<isTargetManual value="false"/>
 </projectOptions>
